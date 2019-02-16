@@ -12,6 +12,65 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <h1>Tic Tac Toe</h1>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Sign In</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control col-4" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control col-4" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Confirm Password</label>
+    <input type="password" class="form-control col-4" id="exampleInputPassword1" placeholder="Confirm Password">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+      <div class="container">
+        <table class="gameBoard">
+          <tbody>
+            <tr class="rows row1">
+              <td id="cell1" class="cells"></td>
+              <td id="cell2" class="cells"></td>
+              <td id="cell3" class="cells"></td>
+            </tr>
+
+            <tr class="rows row2">
+              <td id="cell4" class="cells"></td>
+              <td id="cell5" class="cells"></td>
+              <td id="cell6" class="cells"></td>
+            </tr>
+
+            <tr class="rows row3">
+              <td id="cell7" class="cells"></td>
+              <td id="cell8" id="cell1" class="cells"></td>
+              <td id="cell9" class="cells"></td>
+            </tr>
+
+          </tbody>
+        </table>
+        <button type="button" id="restart">Restart Game</button>
+      </div>
     </body>
 </html>
