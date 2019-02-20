@@ -1,17 +1,53 @@
 @import '~bootstrap/scss/bootstrap';
 
 
-.gameBoard {
+#gameBoard {
+  display: none;
   height: 450px;
   margin: 0 auto;
   width: 450px;
+  margin: 40px;
 }
 
 #restart {
+  margin-left: 670px;
+  background-color: #343a40;
+  color: #fefefe;
+  padding: 10px;
+  display: none;
+}
+.authForm {
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #343a40;
+  color: #fefefe;
+  height: 350px;
+  margin-left: 550px;
+  margin-top: 100px;
+  width: 300px;
+}
+#sign-in-form {
+  margin: 20px;
+}
+#sign-out-button {
+  display: none;
 }
 
-.container {
-  padding: 40px;
+#player-feedback {
+  text-align: center;
+  width: 300px;
+  margin-left: 550px;
+  color: red;
+}
+
+#container {
+display:flex;
+justify-content: center;
+}
+#gameInfo {
+  text-align: center;
+  margin: 20px;
 }
 
 td {
