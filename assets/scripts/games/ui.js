@@ -9,6 +9,10 @@ const signInSuccess = function (responseData) {
   $('#restart').show()
   $('#authForm').hide()
   $('#sign-out-button').show()
+  $('#change-password-dropDown').show()
+  $('#sign-up-dropDown').hide()
+  $('#gameInfo').text(`Successfully signed in!`)
+  setTimeout(() => $('#gameInfo').text(`It is X's turn`), 2000)
   store.user = responseData.user
   console.log(responseData.user)
 }

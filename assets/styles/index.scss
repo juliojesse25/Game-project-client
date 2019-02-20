@@ -49,6 +49,10 @@ justify-content: center;
   text-align: center;
   margin: 20px;
 }
+#change-password-dropDown {
+  display: none;
+  margin: 10px;
+}
 
 td {
   font-size: 75px;
@@ -58,6 +62,7 @@ td {
 
 h1 {
   color: #fefefe;
+  margin: 10px;
 }
 
 .form-control {

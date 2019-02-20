@@ -49,12 +49,10 @@ $(() => {
   }
 
   const clickBoard = function (event) {
-    console.dir(event.target.innerText)
-    if (!event.target.innerText) {
-      event.target.innerText = currentPlayer
-
-      console.log(currentPlayer)
+    if ($(event.target).text() === '') {
+      $(event.target).text(currentPlayer)
       currentMove.push(event.target.id)
+
       if (playerOneMoves.length + playerTwoMoves.length === 9) {
         $('#gameInfo').text('It is a draw!')
       }
@@ -72,7 +70,6 @@ $(() => {
       $('#player-feedback').text('Invalid move')
       setTimeout(() => {
         $('#player-feedback').text('')
-        $('#player-feedback').removeClass('error')
       }, 1000)
     }
   }
@@ -88,8 +85,10 @@ $(() => {
     playerOneMoves = []
     playerTwoMoves = []
     $('#gameBoard').on('click', clickBoard)
+    currentPlayer = playerOne
     currentMove = playerOneMoves
-    switchPlayer()
+    $('#gameInfo').text(`It is ${currentPlayer}'s turn`)
+    // switchPlayer()
   }
 
   $('#restart').on('click', newGame)
