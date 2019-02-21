@@ -47,26 +47,31 @@ $(() => {
     }
     return currentPlayer
   }
-
+  let gameOver = false
   const clickBoard = function (event) {
-    if ($(event.target).text() === '') {
-      $(event.target).text(currentPlayer)
-      currentMove.push(event.target.id)
-
+    const square = $(event.target).text()
+    if (!square) {
+      if (!gameOver) {
+        $(event.target).text(currentPlayer)
+        currentMove.push(event.target.id)
+      }
       if (playerOneMoves.length + playerTwoMoves.length === 9) {
+        gameOver = true
         $('#gameInfo').text('It is a draw!')
       }
       possibleWins.forEach(possibleWin => {
         const win = gameWin(currentMove, possibleWin)
         if (win) {
-          $('#gameBoard').off('click', clickBoard)
+          // $('#gameBoard').off('click', clickBoard)
           $('#gameInfo').text('The Winner is ' + currentPlayer)
+          gameOver = true
         }
       })
-
-      switchPlayer()
-      $('#gameInfo').text(`It is ${currentPlayer}'s turn`)
-    } else {
+      if (!gameOver) {
+        switchPlayer()
+        $('#gameInfo').text(`It is ${currentPlayer}'s turn`)
+      }
+    } else if (square === 'X' || square === 'O') {
       $('#player-feedback').text('Invalid move')
       setTimeout(() => {
         $('#player-feedback').text('')
@@ -74,20 +79,24 @@ $(() => {
     }
   }
 
-  const gamePlay = () => {
-    $('#gameBoard').on('click', clickBoard)
-  }
-  gamePlay()
+  $('#gameBoard').on('click', clickBoard)
+  // const gamePlay = () => {
+  //   $('#gameBoard').on('click', clickBoard)
+  // }
+  // gamePlay()
 
   const newGame = function (event) {
     event.preventDefault()
     $('.cells').text('')
     playerOneMoves = []
     playerTwoMoves = []
-    $('#gameBoard').on('click', clickBoard)
+    // $('#gameBoard').on('click', clickBoard)
     currentPlayer = playerOne
     currentMove = playerOneMoves
+    gameOver = false
     $('#gameInfo').text(`It is ${currentPlayer}'s turn`)
+    // gamePlay()
+    // $('#gameBoard').on('click', clickBoard)
     // switchPlayer()
   }
 
